@@ -1,0 +1,67 @@
+console.log('Задание 1');
+{
+  const student1 = { name: 'Алина', group: 'ВЕБ-21' };
+  const student2 = { name: 'Максим', group: 'ВЕБ-22' };
+
+  function showInfo() {
+    console.log(`Имя: ${this.name}, Группа: ${this.group}`);
+  }
+
+  student1.showInfo = showInfo;
+  student2.showInfo = showInfo;
+
+  console.log('Вызов методов объектов:');
+  student1.showInfo();
+  student2.showInfo();
+
+  console.log('Вызов через отдельную переменную:');
+  const detachedShowInfo = student1.showInfo;
+  detachedShowInfo();
+}
+
+console.log('\nЗадание 2');
+{
+  const product = { name: 'Наушники', price: 5000 };
+
+  function showProduct(discount, city) {
+    const finalPrice = this.price - (this.price * discount) / 100;
+    console.log(`Товар: ${this.name}, Цена со скидкой: ${finalPrice}, Город: ${city}`);
+  }
+
+  console.log('call:');
+  showProduct.call(product, 10, 'Москва');
+
+  console.log('apply:');
+  showProduct.apply(product, [10, 'Москва']);
+}
+
+console.log('\nЗадание 3');
+{
+  const employee = {
+    name: 'Дмитрий',
+    position: 'Веб-разработчик',
+    showInfo() {
+      console.log(`Имя: ${this.name}, Должность: ${this.position}`);
+    }
+  };
+
+  const employee2 = {
+    name: 'Анна',
+    position: 'Дизайнер'
+  };
+
+  console.log('Вызов метода:');
+  employee.showInfo();
+
+  console.log('Потеря контекста:');
+  const detachedMethod = employee.showInfo;
+  detachedMethod();
+
+  console.log('bind к employee:');
+  const boundMethod = employee.showInfo.bind(employee);
+  boundMethod();
+
+  console.log('bind к employee2:');
+  const boundMethod2 = employee.showInfo.bind(employee2);
+  boundMethod2();
+}
