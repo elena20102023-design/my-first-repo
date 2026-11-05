@@ -1,0 +1,12 @@
+const student1 = { name: 'Алина', group: 'ВЕБ-21' };
+const student2 = { name: 'Максим', group: 'ВЕБ-22' };
+function showInfo() {
+  console.log(this.name, this.group);
+}
+student1.showInfo = showInfo;
+student2.showInfo = showInfo;
+student1.showInfo();
+student2.showInfo();
+const lostShowInfo = student1.showInfo;
+lostShowInfo();
+ 
