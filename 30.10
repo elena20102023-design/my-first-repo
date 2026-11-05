@@ -1,0 +1,94 @@
+Задание 1
+
+const siteA = ['anna', 'ivan', 'anna', 'petr', 'olga'];
+const siteB = ['ivan', 'anna', 'sergey', 'olga', 'ivan'];
+const setA = new Set(siteA);
+console.log("Set сайта A:", setA);
+console.log("Количество уникальных на сайте A:", setA.size);
+console.log("Заходил ли 'petr':", setA.has('petr'));
+const allVisitors = new Set([...siteA, ...siteB]);
+const finalArray = [...allVisitors];
+console.log("Итоговый массив:", finalArray);
+
+
+
+Задание 2
+
+const phoneBook = new Map();
+phoneBook.set('Ivanov', '+7-900-111-22-33');
+phoneBook.set('Petrova', '+7-900-444-55-66');
+phoneBook.set('Sidorov', '+7-900-777-88-99');
+const petrovaPhone = phoneBook.get('Petrova');
+console.log('Номер Petrova:', petrovaPhone);
+phoneBook.delete('Sidorov');
+console.log('Итоговый размер справочника:', phoneBook.size);
+console.log('Остался ли Sidorov?:', phoneBook.has('Sidorov'));
+const namesArray = [...phoneBook.keys()];
+console.log('Массив имен сотрудников:', namesArray);
+phoneBook.forEach((phone, name) => {
+    console.log(`${name}: ${phone}`);
+});
+
+
+
+Задание 3
+
+const students = [
+  { name: 'Anna', grade: 5 },
+  { name: 'Ivan', grade: 4 },
+  { name: 'Anna', grade: 5 }, 
+  { name: 'Petr', grade: 3 },
+  { name: 'Olga', grade: 4 },
+  { name: 'Ivan', grade: 4 }  
+];
+const stringifiedStudents = students.map(student => JSON.stringify(student));
+const uniqueStringsSet = new Set(stringifiedStudents);
+const uniqueStringsArray = [...uniqueStringsSet];
+const uniqueStudents = uniqueStringsArray.map(str => JSON.parse(str));
+console.log("1. Уникальные студенты");
+console.log(uniqueStudents);
+
+const gradeMap = new Map();
+students.forEach(student => {
+  const { name, grade } = student;
+  if (!gradeMap.has(grade)) {
+    gradeMap.set(grade, []);
+  }
+  gradeMap.get(grade).push(name);
+});
+
+console.log("\n 2. Список студентов по оценкам");
+for (const [grade, names] of gradeMap) {
+  console.log(`Оценка ${grade}: ${names.join(', ')}`);
+}
+const uniqueGrades = [...gradeMap.keys()];
+console.log("\nУникальные оценки:", uniqueGrades);
+
+
+Задание 4 (2 пара)
+
+function sumTo(n) {
+  if (n === 1) {
+    return 1;
+  }
+  return n + sumTo(n - 1);
+}
+console.log(sumTo(1)); 
+console.log(sumTo(3)); 
+console.log(sumTo(5)); 
+
+
+Задание 5
+
+function power(a, n) {
+  if (n === 0) {
+    return 1;
+  }
+  return a * power(a, n - 1);
+}
+console.log(power(2, 0)); 
+console.log(power(2, 3)); 
+console.log(power(3, 2)); 
+console.log(power(5, 3)); 
+
+

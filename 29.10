@@ -1,0 +1,31 @@
+дз за 29.10
+
+const products = [
+{ name: "Ноутбук", price: 75000, category: "Техника" },
+{ name: "Мышь", price: 1500, category: "Аксессуары" },
+{ name: "Клавиатура", price: 3500, category: "Аксессуары" },
+{ name: "Монитор", price: 22000, category: "Техника" },
+{ name: "Наушники", price: 5000, category: "Аксессуары" }
+];
+console.log("1.Названия и цены всех товаров");
+products.forEach(product => {
+console.log(`${product.name} - ${product.price} руб.`);
+});
+console.log("\n 2.Товары дешевле 5000 руб.");
+const cheapProducts = products.filter(product => product.price < 5000);
+console.log(cheapProducts);
+console.log("\n 3. Массив названий всех товаров");
+const productNames = products.map(product => product.name);
+console.log(productNames);
+console.log("\n 4. Первый товар категории 'Техника'");
+const firstTechnicProduct = products.find(product => product.category === "Техника");
+console.log(firstTechnicProduct);
+console.log("\n 5. Массив цен со скидкой 10%");
+const discountedPrices = products.map(product => product.price * 0.9);
+console.log(discountedPrices);
+console.log("\n Дополнительно: Аксессуары до 4000 руб.");
+const cheapAccessoryNames = products
+.filter(product => product.category === "Аксессуары" && product.price <= 4000)
+.map(product => product.name);
+console.log(cheapAccessoryNames);
+

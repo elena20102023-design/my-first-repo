@@ -1,0 +1,26 @@
+Задание1
+
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>Практика DOM</title>
+</head>
+<body>
+    <h1 id="title">Старый заголовок</h1>
+    <p id="description">Старое описание</p>
+    <button id="change">Изменить текст</button>
+    <script src="script.js"></script>
+</body>
+</html>
+
+
+const titleElement = document.getElementById('title');
+const descriptionElement = document.getElementById('description');
+const buttonElement = document.getElementById('change');
+buttonElement.addEventListener('click', function() {
+    titleElement.textContent = 'Добро пожаловать!';
+    descriptionElement.textContent = 'Мы изучаем JavaScript и DOM';
+    
+});
+

@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>Практика 2: CSS-классы</title>
+    <!-- Подключаем внешний файл стилей -->
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <p id="message" class="text">Изучаем JavaScript</p>
+
+    <script src="script.js"></script>
+</body>
+</html>
+
+
+
+.text {
+    color: black;
+}
+
+.active {
+    color: green;
+    font-weight: bold;
+}
+
+.hidden {
+    display: none;
+}
+
+
+
+let message = document.getElementById("message");
+message.classList.add("active");
+console.log("Есть ли класс active?", message.classList.contains("active"));
+message.classList.remove("text");
+setTimeout(function() {
+    message.classList.add("hidden");
+}, 2000);

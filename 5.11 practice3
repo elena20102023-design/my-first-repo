@@ -1,0 +1,26 @@
+Задание 3
+
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>Практика DOM - Задание 3</title>
+</head>
+<body>
+    <h2>Мои навыки:</h2>
+    <ul id="skills"></ul>
+    <script src="script.js"></script>
+</body>
+</html>
+
+
+
+let skills = document.querySelector("#skills");
+let item1 = document.createElement("li");
+item1.textContent = "HTML";
+let item2 = document.createElement("li");
+item2.textContent = "CSS";
+let item3 = document.createElement("li");
+item3.textContent = "JavaScript";
+skills.append(item1, item2, item3);
+

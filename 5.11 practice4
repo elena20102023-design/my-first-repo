@@ -1,0 +1,22 @@
+Задания 4
+
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>Практика DOM - Задание 4</title>
+</head>
+<body>
+    <h2>Удаление элемента</h2>
+    <p id="paragraph">Этот текст исчезнет, если нажать на кнопку ниже.</p>
+    <button id="delete">Удалить абзац</button>
+    <script src="script.js"></script>
+</body>
+</html>
+
+
+let paragraph = document.querySelector("#paragraph");
+let deleteButton = document.querySelector("#delete");
+deleteButton.addEventListener("click", function() {
+    paragraph.remove();
+});

@@ -1,0 +1,26 @@
+Задание 2
+
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>Практика DOM - Задание 2</title>
+</head>
+<body>
+    <h1 id="heading">Этот заголовок изменит цвет</h1>
+    <button id="color">Изменить цвет текста</button>
+    <button id="background">Изменить фон страницы</button>
+    <script src="script.js"></script>
+</body>
+</html> 
+
+
+let heading = document.querySelector("#heading");
+document.querySelector("#color")
+.addEventListener("click", function() {
+    heading.style.color = "red"; 
+});
+document.querySelector("#background")
+.addEventListener("click", function() {
+    document.body.style.backgroundColor = "pink";
+});
